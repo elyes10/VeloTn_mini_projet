@@ -252,7 +252,7 @@ button:focus{
 .cy_top_detail ul li a:hover {
     color: #ff712a;
 }
-.cy_top_detail ul > li.cart > a > i{ 
+.cy_top_detail ul > li.cart > a > i{
     font-size: 17px;
 }
 .cy_top_detail ul > li.cart a span{
@@ -681,7 +681,7 @@ button.cy_menu_btn {
     font-size: 12px;
     color: #797979;
     position: relative;
-    padding-left:22px; 
+    padding-left:22px;
 }
 .cy_sign_form .forget_password a{
     color: #797979;
@@ -1414,7 +1414,7 @@ span.ev_yr {
 }
 /*-------- upcoming races section start --------*/
 .cy_races_wrapper{
-    padding: 100px 0px 50px 0px; 
+    padding: 100px 0px 50px 0px;
 }
 .cy_races_box{
     margin-bottom: 50px;
@@ -1432,7 +1432,7 @@ span.ev_yr {
 .cy_races_img img{
 	transition: all 0.3s ease-in-out;
     -webkit-transition: all 0.4s ease-in-out;
-    -moz-transition: all 0.s ease-in-out;
+    -moz-transition: all 0.0s ease-in-out;
     -ms-transition: all 0.4s ease-in-out;
 }
 .cy_races_box:hover .cy_races_img img{
@@ -1611,7 +1611,7 @@ span.ev_yr {
 }
 /*-------- store section start --------*/
 .cy_store_wrapper{
-    padding: 100px 0px 50px 0px; 
+    padding: 100px 0px 50px 0px;
 }
 .cy_store_box .cy_store_img{
     border:1px solid #d9dbdd;
@@ -1759,7 +1759,7 @@ span.ev_yr {
     border-bottom: 2px solid #ff712a;
     transition: all 0.3s ease-in-out;
     -webkit-transition: all 0.4s ease-in-out;
-    -moz-transition: all 0.s ease-in-out;
+    -moz-transition: all 0.0s ease-in-out;
     -ms-transition: all 0.4s ease-in-out;
 }
 .cy_price_box:hover {
@@ -4485,7 +4485,7 @@ h3.widget-title:before {
     }
     .cy_team_box img {
         width: 100%;
-    }   
+    }
     .cy_top_detail > ul > li{
         border: none;
     }
@@ -4616,7 +4616,7 @@ h3.widget-title:before {
         background: none;
     }
     .cy_top_wrapper{
-        display: none;  
+        display: none;
     }
     .woocommerce-checkout-receipt p{
         padding: 0px;
