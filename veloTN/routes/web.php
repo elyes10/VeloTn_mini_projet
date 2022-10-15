@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BikeController;
+use App\Http\Controllers\AssociationController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,7 +19,7 @@ Route::get('/', function () {
     return view('FrontVues.Home_Front');
 });
 
-
+Route::resource('associations', AssociationController::class);
 
 Auth::routes();
 
