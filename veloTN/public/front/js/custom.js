@@ -1,5 +1,5 @@
 /*
-Copyright (c) 2017 
+Copyright (c) 2017
 ------------------------------------------------------------------
 [Master Javascript]
 
@@ -288,10 +288,10 @@ Project:	Cycling  - Responsive HTML Template
         },
         Search: function() {
             $('.search_open').on('click',function(){
-                $('.cy_search_form').addClass('search_opened')  
+                $('.cy_search_form').addClass('search_opened')
             });
             $('.search_close').on('click',function(){
-                $('.cy_search_form').removeClass('search_opened')  
+                $('.cy_search_form').removeClass('search_opened')
             });
         },
         Thumbnail_slider: function(){
@@ -327,14 +327,14 @@ Project:	Cycling  - Responsive HTML Template
               function syncPosition(el) {
                 var count = el.item.count-1;
                 var current = Math.round(el.item.index - (el.item.count/2) - .5);
-                
+
                 if(current < 0) {
                   current = count;
                 }
                 if(current > count) {
                   current = 0;
                 }
-                
+
                 sync2
                   .find(".owl-item")
                   .removeClass("current")
@@ -343,7 +343,7 @@ Project:	Cycling  - Responsive HTML Template
                 var onscreen = sync2.find('.owl-item.active').length - 1;
                 var start = sync2.find('.owl-item.active').first().index();
                 var end = sync2.find('.owl-item.active').last().index();
-                
+
                 if (current > end) {
                   sync2.data('owl.carousel').to(current, 100, true);
                 }
@@ -351,14 +351,14 @@ Project:	Cycling  - Responsive HTML Template
                   sync2.data('owl.carousel').to(current - onscreen, 100, true);
                 }
               }
-              
+
               function syncPosition2(el) {
                 if(syncedSecondary) {
                   var number = el.item.index;
                   sync1.data('owl.carousel').to(number, 100, true);
                 }
               }
-              
+
               sync2.on("click", ".owl-item", function(e){
                 e.preventDefault();
                 var number = $(this).index();
@@ -371,7 +371,7 @@ Project:	Cycling  - Responsive HTML Template
 			$('.modal-open #signin').hide();
 			$('.modal-backdrop').hide();
 			$('body').css('padding','0px');
-			
+
 		   })
 		},
 		Select:function(){
