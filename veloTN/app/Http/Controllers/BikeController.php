@@ -16,8 +16,19 @@ class BikeController extends Controller
      */
     public function index()
     {
-        $bikes = (new bike)->orderBy('id','desc')->paginate(5);
+        $bikes = (new bike)->orderBy('id','desc')->paginate(10000);
         return view('bikes.index', compact('bikes'));
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return Response
+     */
+    public function indexback()
+    {
+        $bikes = (new bike)->orderBy('id','desc')->paginate(10000);
+        return view('bikes.index_backend', compact('bikes'));
     }
 
     /**
@@ -44,11 +55,17 @@ class BikeController extends Controller
             'stock' => 'required',
             'price' => 'required',
             'ratings' => 'required',
+            'image1' => 'required',
         ]);
 
+        $image= $request->file('image1')->getClientOriginalName();
+        $request->file('image1')->storeAs('public/front/images/',$image);
+        $request->merge([
+            'image' => $image,
+        ]);
         (new bike)->create($request->post());
 
-        return redirect()->route('bikes.index')->with('success','Bike has been created successfully.');
+        return redirect()->route('bikes.index_backend')->with('success','Bike has been created successfully.');
     }
 
     /**
@@ -87,11 +104,11 @@ class BikeController extends Controller
             'description' => 'required',
             'stock' => 'required',
             'price' => 'required',
-            'ratings' => 'required',
+            'image' => 'required',
         ]);
         $bike->fill($request->post())->save();
 
-        return redirect()->route('bikes.index')->with('success','bike Has Been updated successfully');
+        return redirect()->route('bikes.index_backend')->with('success','bike Has Been updated successfully');
     }
 
     /**
@@ -103,7 +120,7 @@ class BikeController extends Controller
     public function destroy(bike $bike)
     {
         $bike->delete();
-        return redirect()->route('bikes.index')->with('success','bike has been deleted successfully');
+        return redirect()->route('bikes.index_backend')->with('success','bike has been deleted successfully');
     }
 
 }

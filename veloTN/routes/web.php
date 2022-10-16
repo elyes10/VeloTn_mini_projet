@@ -28,6 +28,7 @@ Auth::routes();
 Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home')->middleware('auth');
 Route::resource('bikes', BikeController::class);
 Route::group(['middleware' => 'auth'], function () {
+    Route::get('bikesmanagement', ['as' => 'bikes.index_backend', 'uses' => 'App\Http\Controllers\BikeController@indexback']);
 		Route::get('icons', ['as' => 'pages.icons', 'uses' => 'App\Http\Controllers\PageController@icons']);
 		Route::get('maps', ['as' => 'pages.maps', 'uses' => 'App\Http\Controllers\PageController@maps']);
 		Route::get('notifications', ['as' => 'pages.notifications', 'uses' => 'App\Http\Controllers\PageController@notifications']);
