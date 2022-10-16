@@ -20,6 +20,7 @@ return new class extends Migration
             $table->integer('stock');
             $table->float('price');
             $table->integer('ratings');
+            $table->string('image');
             $table->timestamps();
         });
     }
