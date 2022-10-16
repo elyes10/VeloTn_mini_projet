@@ -25,5 +25,7 @@ class bike extends Model
         'stock',
         'price',
         'ratings',
+        'image',
     ];
+
 }
