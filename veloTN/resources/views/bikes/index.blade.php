@@ -40,10 +40,10 @@
                                     <div class="col-lg-6 col-md-6 list-group-item">
                                         <div class="cy_store_box">
                                             <div class="cy_store_img">
-                                                <a href="shop_single.html"> <img src="{{ asset('front') }}/images/bike.png" alt="logo" class="img-fluid"/></a>
+                                                <a href="shop_single.html"> <img src="{{ asset('storage/front') }}/images/{{ $bike->image }}" alt="logo"  width="367px" height="345px"/></a>
 
                                             </div>
-                                            <div class="cy_store_data">
+                                            <div class="cy_store_data" style="min-width: 320px;min-height: 345px;max-height: 345px" >
                                                 <div class="cy_store_text">
                                                     <h3>{{ $bike->name }}</h3>
                                                     <ul>
