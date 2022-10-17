@@ -53,7 +53,7 @@
                                                 </div>
                                                 <p>{{ $bike->description }}</p>
                                                 <p> <strong style="color: darkorange;font-size: 20px">stock : </strong>{{ $bike->stock }} </p>
-                                                <a href="cart.html" class="cy_button" data-hover="Reserve"><span>{{ $bike->price }} $</span></a>
+                                                <a href="cart.html" class="cy_button" data-hover="Book it now"><span>{{ $bike->price }} $ / day</span></a>
 
                                             </div>
                                         </div>
