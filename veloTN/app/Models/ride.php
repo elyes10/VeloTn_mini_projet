@@ -8,6 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class ride extends Model
 {
     use HasFactory;
+    public function event()
+    {
+        return $this->belongsTo(event::class);
+    }
 
     /**
      * The attributes that are mass assignable.

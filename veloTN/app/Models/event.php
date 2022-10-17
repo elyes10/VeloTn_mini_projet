@@ -13,6 +13,10 @@ use Illuminate\Database\Eloquent\Model;
 class event extends Model
 {
     use HasFactory;
+    public function rides()
+    {
+        return $this->hasMany(ride::class);
+    }
 
     /**
      * The attributes that are mass assignable.

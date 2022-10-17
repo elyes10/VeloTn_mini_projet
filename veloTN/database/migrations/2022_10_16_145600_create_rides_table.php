@@ -19,6 +19,12 @@ return new class extends Migration
             $table->string('description');
             $table->string('destination');
             $table->dateTime('startedAt');
+            $table->unsignedBigInteger('event_id');
+            $table->foreign('event_id')
+                ->references('id')
+                ->on('events')
+                ->onDelete('restrict')
+                ->onUpdate('restrict');
             $table->timestamps();
         });
     }
