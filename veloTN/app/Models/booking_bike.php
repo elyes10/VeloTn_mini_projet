@@ -5,12 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
 /**
  * @mixin Builder
  */
-
-class bike extends Model
+class booking_bike extends Model
 {
     use HasFactory;
 
@@ -20,14 +18,22 @@ class bike extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
-        'description',
-        'stock',
-        'price',
-        'ratings',
-        'image',
+        'user_full_name',
+        'email',
+        'city',
+        'quantite',
+        'start_date',
+        'end_date',
+        'nbr_jour',
+        'status',
+        'bike_id',
     ];
-    public function reservations() {
-        return $this->hasMany(booking_bike::class);
+
+    /**
+     * Get the bike associated with the reservation.
+     */
+    public function bike()
+    {
+        return $this->belongsTo(bike::class);
     }
 }

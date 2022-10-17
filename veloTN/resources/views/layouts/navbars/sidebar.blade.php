@@ -23,19 +23,26 @@
                         <li >
                             <a href="{{ route('profile.edit')  }}">
                                 <i class="tim-icons icon-single-02"></i>
-                                <p>{{ __('User Profile') }}</p>
+                                <p style="font-size: 11px">{{ __('User Profile') }}</p>
                             </a>
                         </li>
                         <li >
                             <a href="{{ route('user.index')  }}">
                                 <i class="tim-icons icon-bullet-list-67"></i>
-                                <p>{{ __('User Management') }}</p>
+                                <p style="font-size: 11px">{{ __('User Management') }}</p>
                             </a>
                         </li>
                         <li >
                             <a href="{{ route('bikes.index_backend')  }}">
                                 <i class="tim-icons icon-bullet-list-67"></i>
-                                <p>{{ __('Bikes Management') }}</p>
+                                <p style="font-size: 11px">{{ __('Bikes Management') }}</p>
+                            </a>
+                        </li>
+
+                        <li >
+                            <a href="{{ route('bikes_booking.index_backend')  }}">
+                                <i class="tim-icons icon-bullet-list-67"></i>
+                                <p style="font-size: 11px">{{ __('Bookings Management') }}</p>
                             </a>
                         </li>
                     </ul>
