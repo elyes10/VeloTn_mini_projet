@@ -63,11 +63,10 @@
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div>
-                                <strong>Image:</strong>
-                                <input type="file" name="url" class="form-control" placeholder="image name"
-                                    accept="image/png, image/jpeg">
-                                @error('url')
-                                    <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                                <input type="file" name="file" id="file" accept="image/*"
+                                    class="form-control @error('file') is-invalid @enderror">
+                                @error('file')
+                                    <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
                         </div>

@@ -29,8 +29,9 @@
                                                 <td>{{ $association->name }}</td>
                                                 <td>{{ $association->email }}</td>
                                                 <td>{{ $association->address }}</td>
-                                                <td>${{ $association->address }}</td>
                                                 <td>{{ $association->numero }}</td>
+                                                <td><img src="{{ asset('storage/images/' . $association->url) }}"
+                                                        width="100" height="100"></td>
                                                 <td>
                                                     <form action="{{ route('associations.destroy', $association->id) }}"
                                                         method="Post">

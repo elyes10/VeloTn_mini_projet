@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Association;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class AssociationController extends Controller
 {
@@ -37,12 +38,19 @@ class AssociationController extends Controller
             'name' => 'required',
             'email' => 'required',
             'address' => 'required',
-            'url' => 'required',
+            'file' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'numero' => 'required',
 
         ]);
 
-        Association::create($request->post());
+        $imageName = time() . '.' . $request->file->extension();
+        // $request->image->move(public_path('images'), $imageName);
+        $request->file->storeAs('public/images', $imageName);
+
+        $postData = ['name' => $request->name, 'email' => $request->email,'numero' => $request->numero, 'address' => $request->address, 'url' => $imageName];
+
+
+        Association::create($postData);
 
         return redirect()->route('associations.index')->with('success','Association has been created successfully.');
     }
@@ -80,11 +88,22 @@ class AssociationController extends Controller
             'name' => 'required',
             'email' => 'required',
             'address' => 'required',
-            'url' => 'required',
             'numero' => 'required|min:8|max:8',
         ]);
+        $imageName = '';
+        if ($request->hasFile('file')) {
+          $imageName = time() . '.' . $request->file->extension();
+          $request->file->storeAs('public/images', $imageName);
+          if ($association->url) {
+            Storage::delete('public/images/' . $association->url);
+          }
+        } else {
+          $imageName = $association->url;
+        }
+        $postData = ['name' => $request->name, 'email' => $request->email,'numero' => $request->numero, 'address' => $request->address, 'url' => $imageName];
 
-        $association->fill($request->post())->save();
+        // $association->fill($request->post())->save();
+        $association->update($postData);
 
         return redirect()->route('associations.index')->with('success','Association Has Been updated successfully');
     }
@@ -97,6 +116,7 @@ class AssociationController extends Controller
     */
     public function destroy(Association $association)
     {
+        Storage::delete('public/images/' . $association->url);
         $association->delete();
         return redirect()->route('associations.index')->with('success','association has been deleted successfully');
     }
