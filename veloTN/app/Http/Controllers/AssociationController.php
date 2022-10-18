@@ -81,7 +81,7 @@ class AssociationController extends Controller
             'email' => 'required',
             'address' => 'required',
             'url' => 'required',
-            'numero' => 'required',
+            'numero' => 'required|min:8|max:8',
         ]);
 
         $association->fill($request->post())->save();
