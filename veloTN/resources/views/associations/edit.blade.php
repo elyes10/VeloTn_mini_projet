@@ -68,6 +68,9 @@
                             <div>
                                 <input type="file" name="file" id="file" accept="image/*"
                                     class="form-control @error('file') is-invalid @enderror">
+                                <br>
+                                <img src="{{ asset('storage/images/' . $association->url) }}"
+                                    class="img-fluid img-thumbnail" width="150">
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary ml-3">Submit</button>

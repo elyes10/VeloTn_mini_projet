@@ -17,6 +17,16 @@ class AssociationController extends Controller
         $associations = Association::orderBy('id','desc')->paginate(5);
         return view('associations.index', compact('associations'));
     }
+     /**
+    * Display a listing of the resource.
+    *
+    * @return \Illuminate\Http\Response
+    */
+    public function indexfront()
+    {
+        $associations = Association::orderBy('id','desc')->paginate(5);
+        return view('associations.index_front', compact('associations'));
+    }
         /**
     * Show the form for creating a new resource.
     *

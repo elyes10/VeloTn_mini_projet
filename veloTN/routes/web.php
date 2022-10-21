@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BikeController;
 use App\Http\Controllers\AssociationController;
+use App\Http\Controllers\FondateurController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,12 +20,16 @@ Route::get('/', function () {
     return view('FrontVues.Home_Front');
 });
 
+Route::resource('fondateurs', FondateurController::class);
 Route::resource('associations', AssociationController::class);
+Route::get('/lesassociations', [AssociationController::class, 'indexfront']);
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Auth::routes();
+
+
 
 Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home')->middleware('auth');
 Route::resource('bikes', BikeController::class);
