@@ -8,5 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Fondateur extends Model
 {
     use HasFactory;
-    protected $fillable = ['name', 'description', 'url'];
+    protected $fillable = ['name', 'description', 'url',];
+    public function associations() {
+        return $this->hasMany(Assocaition::class);
+    }
 }

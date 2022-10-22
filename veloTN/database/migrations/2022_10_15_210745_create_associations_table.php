@@ -20,6 +20,8 @@ return new class extends Migration
             $table->string('address');
             $table->string('url');
             $table->string('numero');
+            $table->unsignedBigInteger('fondateur_id');
+            $table->foreign('fondateur_id')->references('id')->on('fondateurs');
             $table->timestamps();
         });
     }
