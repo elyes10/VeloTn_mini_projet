@@ -2225,7 +2225,7 @@ span.cy_go_text {
 /*==About Page Css Start==*/
 
 .cy_bread_wrapper {
-    background-image: url(http://via.placeholder.com/1920x315);
+    background-color: 9F9F9F;
     background-size: cover;
     position: relative;
     padding: 170px 0px 90px;
