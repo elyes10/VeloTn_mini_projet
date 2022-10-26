@@ -29,19 +29,21 @@
                                     <th >Action</th>
                                     </thead>
                                     <tbody>
-                                    @foreach ($bike_booking as $booking)
+                                    @foreach ($booking_bike as $booking_bike)
                                         <tr>
-                                            <td>{{ $booking->id }}</td>
-                                            <td>{{ $booking->user_full_name }}</td>
-                                            <td>{{ $booking->email }}</td>
-                                            <td>{{ $booking->city }}</td>
-                                            <td>{{$booking->quantite }}</td>
-                                            <td>{{$booking->start_date }}</td>
-                                            <td>{{$booking->end_date }}</td>
-                                            <td>{{$booking->nbr_jour }}</td>
-                                            <td>{{$booking->status }}</td>
-                                            <td>{{$booking->bike()->find($booking->bike_id)->name }}</td>
+                                            <td>{{ $booking_bike->id }}</td>
+                                            <td>{{ $booking_bike->user_full_name }}</td>
+                                            <td>{{ $booking_bike->email }}</td>
+                                            <td>{{ $booking_bike->city }}</td>
+                                            <td>{{$booking_bike->quantite }}</td>
+                                            <td>{{$booking_bike->start_date }}</td>
+                                            <td>{{$booking_bike->end_date }}</td>
+                                            <td>{{$booking_bike->nbr_jour }}</td>
+                                            <td>{{$booking_bike->status }}</td>
+                                            <td>{{$booking_bike->bike()->find($booking_bike->bike_id)->name }}</td>
+                                            <td>
 
+                                            </td>
                                         </tr>
                                     @endforeach
                                     </tbody>

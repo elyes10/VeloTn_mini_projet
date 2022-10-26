@@ -13,7 +13,7 @@ class Storebooking_bikeRequest extends FormRequest
      */
     public function authorize()
     {
-        return auth()->check();
+        return auth()->user();
     }
 
     /**

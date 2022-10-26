@@ -47,7 +47,7 @@
                                 <div class="form-group">
                                     <strong>Bike</strong>
                                     <select type="text" name="bike_id" class="form-control" style="color: purple">
-                                        <option value="0" >---select bike---</option>
+
                                         @foreach($bikes as $bike)
                                         <option value={{$bike->id}}>{{$bike->name}}</option>
                                         @endforeach
