@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\bike;
 use App\Http\Requests\StorebikeRequest;
 use App\Http\Requests\UpdatebikeRequest;
+use App\Models\booking_bike;
 use Illuminate\Http\Response;
 
 class BikeController extends Controller
@@ -122,5 +123,6 @@ class BikeController extends Controller
         $bike->delete();
         return redirect()->route('bikes.index_backend')->with('success','bike has been deleted successfully');
     }
+
 
 }

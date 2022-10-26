@@ -3,6 +3,7 @@
 use App\Http\Controllers\BikeController;
 use App\Http\Controllers\AssociationController;
 use App\Http\Controllers\FondateurController;
+use App\Http\Controllers\BookingBikeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,8 +21,7 @@ Route::get('/', function () {
     return view('FrontVues.Home_Front');
 });
 
-Route::resource('fondateurs', FondateurController::class);
-Route::resource('associations', AssociationController::class);
+
 Route::get('/lesassociations', [AssociationController::class, 'indexfront']);
 
 Auth::routes();
@@ -33,8 +33,12 @@ Auth::routes();
 
 Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home')->middleware('auth');
 Route::resource('bikes', BikeController::class);
+Route::resource('bookings', BookingBikeController::class);
 Route::group(['middleware' => 'auth'], function () {
+    Route::resource('fondateurs', FondateurController::class);
+Route::resource('associations', AssociationController::class);
     Route::get('bikesmanagement', ['as' => 'bikes.index_backend', 'uses' => 'App\Http\Controllers\BikeController@indexback']);
+    Route::get('bookingsmanagement', ['as' => 'bikes_booking.index_backend', 'uses' => 'App\Http\Controllers\BookingBikeController@indexback']);
 		Route::get('icons', ['as' => 'pages.icons', 'uses' => 'App\Http\Controllers\PageController@icons']);
 		Route::get('maps', ['as' => 'pages.maps', 'uses' => 'App\Http\Controllers\PageController@maps']);
 		Route::get('notifications', ['as' => 'pages.notifications', 'uses' => 'App\Http\Controllers\PageController@notifications']);
