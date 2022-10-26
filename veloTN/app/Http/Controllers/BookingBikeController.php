@@ -27,8 +27,8 @@ class BookingBikeController extends Controller
      */
     public function indexback()
     {
-        $bike_booking = (new booking_bike)->orderBy('id','desc')->paginate(10000);
-        return view('bikes_booking.index_backend', compact('bike_booking'));
+        $booking_bike = (new booking_bike)->orderBy('id','desc')->paginate(10000);
+        return view('bikes_booking.index_backend', compact('booking_bike'));
     }
 
     /**
@@ -65,7 +65,7 @@ class BookingBikeController extends Controller
 
         (new booking_bike)->create($request->post());
 
-        return redirect()->route('bikes_booking.index_backend')->with('success','Booking has been created successfully.');
+        return redirect()->back();
     }
 
     /**
@@ -87,7 +87,7 @@ class BookingBikeController extends Controller
      */
     public function edit(booking_bike $booking_bike)
     {
-        //
+        return view('bikes_booking.edit',compact('booking_bike'));
     }
 
     /**
@@ -99,17 +99,27 @@ class BookingBikeController extends Controller
      */
     public function update(Updatebooking_bikeRequest $request, booking_bike $booking_bike)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'description' => 'required',
+            'stock' => 'required',
+            'price' => 'required',
+            'image' => 'required',
+        ]);
+        $booking_bike->fill($request->post())->save();
+
+        return redirect()->route('bikes.index_backend')->with('success','bike Has Been updated successfully');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\booking_bike  $booking_bike
-     * @return \Illuminate\Http\Response
+     * @param booking_bike $bike
+     * @return Response
      */
-    public function destroy(booking_bike $booking_bike)
+    public function destroy(booking_bike $bike)
     {
-        //
+        $bike->delete();
+        return redirect()->route('bikes_booking.index_backend')->with('success','bike has been deleted successfully');
     }
 }
