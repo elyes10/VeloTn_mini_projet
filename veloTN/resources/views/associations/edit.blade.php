@@ -65,6 +65,23 @@
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <strong>Fondateur</strong>
+                                <select type="text" name="fondateur_id" class="form-control" style="color: purple">
+                                    <option value={{ $association->fondateur_id }}>
+                                        {{ $association->fondateur()->find($association->fondateur_id)->name }} </option>
+                                    @foreach ($fondateurs as $fondateur)
+                                        @if ($fondateur->id != $association->fondateur_id)
+                                            <option value={{ $fondateur->id }}>{{ $fondateur->name }}</option>
+                                        @endif
+                                    @endforeach
+                                </select>
+                                @error('fondateur_id')
+                                    <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12">
                             <div>
                                 <input type="file" name="file" id="file" accept="image/*"
                                     class="form-control @error('file') is-invalid @enderror">

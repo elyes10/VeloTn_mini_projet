@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Association;
+use App\Models\Fondateur;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -14,7 +15,7 @@ class AssociationController extends Controller
     */
     public function index()
     {
-        $associations = Association::orderBy('id','desc')->paginate(5);
+        $associations = Association::orderBy('id','desc')->paginate(1000);
         return view('associations.index', compact('associations'));
     }
      /**
@@ -24,7 +25,7 @@ class AssociationController extends Controller
     */
     public function indexfront()
     {
-        $associations = Association::orderBy('id','desc')->paginate(5);
+        $associations = Association::orderBy('id','desc')->paginate(1000);
         return view('associations.index_front', compact('associations'));
     }
         /**
@@ -33,8 +34,8 @@ class AssociationController extends Controller
     * @return \Illuminate\Http\Response
     */
     public function create()
-    {
-        return view('associations.create');
+    {   $fondateurs = Fondateur::orderBy('id','desc')->paginate(1000);
+        return view('associations.create', compact('fondateurs'));
     }
     /**
     * Store a newly created resource in storage.
@@ -50,6 +51,7 @@ class AssociationController extends Controller
             'address' => 'required',
             'file' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'numero' => 'required',
+            'fondateur_id' => 'required',
 
         ]);
 
@@ -57,7 +59,7 @@ class AssociationController extends Controller
         // $request->image->move(public_path('images'), $imageName);
         $request->file->storeAs('public/images', $imageName);
 
-        $postData = ['name' => $request->name, 'email' => $request->email,'numero' => $request->numero, 'address' => $request->address, 'url' => $imageName];
+        $postData = ['name' => $request->name,'fondateur_id'=>$request->fondateur_id, 'email' => $request->email,'numero' => $request->numero, 'address' => $request->address, 'url' => $imageName];
 
 
         Association::create($postData);
@@ -82,7 +84,9 @@ class AssociationController extends Controller
     */
     public function edit(Association $association)
     {
-        return view('associations.edit',compact('association'));
+
+       $fondateurs = Fondateur::orderBy('id','desc')->paginate(1000);
+        return view('associations.edit',compact('association','fondateurs'));
     }
 
     /**
@@ -99,6 +103,7 @@ class AssociationController extends Controller
             'email' => 'required',
             'address' => 'required',
             'numero' => 'required|min:8|max:8',
+            'fondateur_id' => 'required',
         ]);
         $imageName = '';
         if ($request->hasFile('file')) {
@@ -110,7 +115,7 @@ class AssociationController extends Controller
         } else {
           $imageName = $association->url;
         }
-        $postData = ['name' => $request->name, 'email' => $request->email,'numero' => $request->numero, 'address' => $request->address, 'url' => $imageName];
+        $postData = ['name' => $request->name,'fondateur_id'=>$request->fondateur_id, 'email' => $request->email,'numero' => $request->numero, 'address' => $request->address, 'url' => $imageName];
 
         // $association->fill($request->post())->save();
         $association->update($postData);

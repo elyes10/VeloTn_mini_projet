@@ -70,6 +70,20 @@
                                 @enderror
                             </div>
                         </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <strong>Fondateur</strong>
+                                <select type="text" name="fondateur_id" class="form-control" style="color: purple">
+                                    <option value="0">---select Fondateur---</option>
+                                    @foreach ($fondateurs as $fondateur)
+                                        <option value={{ $fondateur->id }}>{{ $fondateur->name }}</option>
+                                    @endforeach
+                                </select>
+                                @error('fondateur_id')
+                                    <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
 
                         <button type="submit" class="btn btn-primary ml-3" style="margin-top: 15px">Submit</button>
                     </div>

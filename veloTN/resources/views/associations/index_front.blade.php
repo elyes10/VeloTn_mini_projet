@@ -50,10 +50,10 @@
                                                 <div class="cy_store_img">
                                                     <a href="shop_single.html"> <img
                                                             src="{{ asset('storage/images/' . $association->url) }}"
-                                                            width="367px" height="345px"> </a>
+                                                            width="367px" height="400px"> </a>
                                                 </div>
                                                 <div class="cy_store_data"
-                                                    style="min-width: 320px;min-height: 345px;max-height: 345px">
+                                                    style="min-width: 320px;min-height: 400px;max-height: 345px">
                                                     <div class="cy_store_text">
                                                         <h5>Nom :</h5>
                                                         <br>
@@ -70,6 +70,10 @@
                                                     <div class="cy_store_text">
                                                         <h5>numero :</h5>
                                                         <h3>{{ $association->numero }}</h3>
+                                                    </div>
+                                                    <div class="cy_store_text">
+                                                        <h5>Fondateur Name :</h5>
+                                                        <h3> {{ $association->fondateur()->find($association->fondateur_id)->name }}</h3>
                                                     </div>
                                                 </div>
                                             </div>

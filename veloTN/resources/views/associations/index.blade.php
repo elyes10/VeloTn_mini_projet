@@ -21,6 +21,7 @@
                                         <th>Email</th>
                                         <th>Address</th>
                                         <th>Numero</th>
+                                        <th>Fondateur</th>
                                     </thead>
                                     <tbody>
                                         @foreach ($associations as $association)
@@ -30,7 +31,9 @@
                                                 <td>{{ $association->email }}</td>
                                                 <td>{{ $association->address }}</td>
                                                 <td>{{ $association->numero }}</td>
-                                                <td><img src="{{ asset('storage/images/' . $association->url) }}"
+                                                <td>{{ $association->fondateur()->find($association->fondateur_id)->name }}                                           </td>
+                                                <td>
+                                                    <img src="{{ asset('storage/images/' . $association->url) }}"
                                                         width="100" height="100"></td>
                                                 <td>
                                                     <form action="{{ route('associations.destroy', $association->id) }}"
