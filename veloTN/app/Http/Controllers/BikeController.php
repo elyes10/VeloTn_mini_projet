@@ -105,8 +105,18 @@ class BikeController extends Controller
             'description' => 'required',
             'stock' => 'required',
             'price' => 'required',
-            'image' => 'required',
+
         ]);
+        $image='';
+        if ($request->hasFile('image1')) {
+        $image= $request->file('image1')->getClientOriginalName();
+        $request->file('image1')->storeAs('public/front/images/',$image);
+        $request->merge([
+            'image' => $image,
+        ]); }
+        else { $request->merge([
+            'image' => $bike->image,
+        ]);}
         $bike->fill($request->post())->save();
 
         return redirect()->route('bikes.index_backend')->with('success','bike Has Been updated successfully');
@@ -119,7 +129,7 @@ class BikeController extends Controller
      * @return Response
      */
     public function destroy(bike $bike)
-    {
+    { $bike->reservations()->delete();
         $bike->delete();
         return redirect()->route('bikes.index_backend')->with('success','bike has been deleted successfully');
     }

@@ -26,12 +26,7 @@
                                 <p style="font-size: 11px">{{ __('User Profile') }}</p>
                             </a>
                         </li>
-                        <li >
-                            <a href="{{ route('user.index')  }}">
-                                <i class="tim-icons icon-bullet-list-67"></i>
-                                <p style="font-size: 11px">{{ __('User Management') }}</p>
-                            </a>
-                        </li>
+
                         <li >
                             <a href="{{ route('bikes.index_backend')  }}">
                                 <i class="tim-icons icon-bullet-list-67"></i>
@@ -39,10 +34,23 @@
                             </a>
                         </li>
 
+
                         <li >
                             <a href="{{ route('bikes_booking.index_backend')  }}">
                                 <i class="tim-icons icon-bullet-list-67"></i>
                                 <p style="font-size: 11px">{{ __('Bookings Management') }}</p>
+                            </a>
+                        </li>
+                        <li >
+                            <a href="{{ route('fondateurs.index')  }}">
+                                <i class="tim-icons icon-bullet-list-67"></i>
+                                <p style="font-size: 11px">{{ __('Founders Management') }}</p>
+                            </a>
+                        </li>
+                        <li >
+                            <a href="">
+                                <i class="tim-icons icon-bullet-list-67"></i>
+                                <p style="font-size: 11px">{{ __('Balades Management') }}</p>
                             </a>
                         </li>
                     </ul>
