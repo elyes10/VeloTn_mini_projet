@@ -4,6 +4,7 @@ use App\Http\Controllers\BikeController;
 use App\Http\Controllers\AssociationController;
 use App\Http\Controllers\FondateurController;
 use App\Http\Controllers\BookingBikeController;
+use App\Http\Controllers\MailController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,9 +29,11 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Auth::routes();
+Route::get('sendbasicemail','App\Http\Controllers\MailController@basic_email');
+Route::get('sendhtmlemail','App\Http\Controllers\MailController@html_email');
+Route::get('sendattachmentemail','App\Http\Controllers\MailController@attachment_email');
 
-
-
+Route::resource('mail', MailController::class);
 Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home')->middleware('auth');
 Route::resource('bikes', BikeController::class);
 Route::resource('bookings', BookingBikeController::class);

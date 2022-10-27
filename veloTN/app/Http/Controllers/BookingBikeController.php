@@ -65,6 +65,7 @@ class BookingBikeController extends Controller
 
         (new booking_bike)->create($request->post());
 
+        MailController::basic_email($request->input('email'),$request->input('user_full_name'),$request->input('nbr_jour'),$request->input('bike_id'),$request->input('quantite'),$request->input('start_date'));
         return redirect()->back();
     }
 
