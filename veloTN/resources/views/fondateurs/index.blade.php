@@ -25,9 +25,7 @@
                                             <tr>
                                                 <td>{{ $fondateur->id }}</td>
                                                 <td>{{ $fondateur->name }}</td>
-                                                <td>{{ $fondateur->email }}</td>
-                                                <td>{{ $fondateur->address }}</td>
-                                                <td>{{ $fondateur->numero }}</td>
+                                                <td>{{ $fondateur->description }}</td>
                                                 <td><img src="{{ asset('storage/images/' . $fondateur->url) }}"
                                                         width="100" height="100"></td>
                                                 <td>
