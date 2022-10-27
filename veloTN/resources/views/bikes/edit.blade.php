@@ -65,11 +65,11 @@
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12">
-                            <div class="form-group">
-                                <strong>Image:</strong>
-                                <input type="text" name="image" value="{{ $bike->image }}" class="form-control"
-                                       placeholder="image">
-                                @error('image')
+                            <div >
+                                <strong>Image file:</strong>
+                                <input type="file" name="image1" id="image1" class="form-control"
+                                       placeholder="image upload"  accept="image/png, image/jpeg" >
+                                @error('image1')
                                 <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                                 @enderror
                             </div>
