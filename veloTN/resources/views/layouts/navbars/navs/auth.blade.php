@@ -22,6 +22,11 @@
                         <span class="d-lg-none d-md-block">{{ __('Search') }}</span>
                     </button>
                 </li>
+                <li class="nav-item ">
+                    <a href="{{ route('register') }}" class="nav-link">
+                        <i class="tim-icons icon-laptop"></i> {{ __('Register') }}
+                    </a>
+                </li>
                 <li class="dropdown nav-item">
                     <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                         <div class="notification d-none d-lg-block d-xl-block"></div>
