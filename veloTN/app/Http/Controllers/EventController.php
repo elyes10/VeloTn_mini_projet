@@ -1,8 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\bike;
 use App\Models\event;
+use App\Models\ride;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
@@ -15,7 +15,19 @@ class EventController extends Controller
      */
     public function index()
     {
+        $events = (new event())->orderBy('id','desc')->paginate(5);
+        return view('events.index', compact('events'));
+    }
 
+    /**
+     * Display a listing of the resource.
+     *
+     * @return Response
+     */
+    public function indexback()
+    {
+        $events = (new event)->orderBy('id','desc')->paginate(10000);
+        return view('events.index_backend', compact('events'));
     }
 
     /**
@@ -31,20 +43,21 @@ class EventController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\EventRequest  $request
-     * @return Response
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
      */
-    public function store(EventRequest $request)
+    public function store(Request $request)
     {
         $request->validate([
             'name' => 'required',
             'description' => 'required',
             'location' => 'required',
+            'date' => 'required',
         ]);
 
-        (new event)->create($request->post());
+        event::create($request->post());
 
-        return redirect()->route('events.index')->with('success','Event has been created successfully.');
+        return redirect()->route('events.index_backend')->with('success','Event has been created successfully.');
     }
 
     /**
@@ -53,7 +66,7 @@ class EventController extends Controller
      * @param event $event
      * @return Response
      */
-    public function show(Event $event)
+    public function show(event $event)
     {
         return view('events.show',compact('event'));
     }
@@ -76,7 +89,7 @@ class EventController extends Controller
      * @param event $event
      * @return Response
      */
-    public function update(Request $request, Event $event)
+    public function update(Request $request, event $event)
     {
         $request->validate([
             'name' => 'required',
@@ -86,7 +99,7 @@ class EventController extends Controller
 
         $event->fill($request->post())->save();
 
-        return redirect()->route('events.index')->with('success','Event Has Been updated successfully');
+        return redirect()->route('events.index_backend')->with('success','Event Has Been updated successfully');
     }
 
     /**
@@ -95,9 +108,9 @@ class EventController extends Controller
      * @param event $event
      * @return Response
      */
-    public function destroy(Event $event)
+    public function destroy(event $event)
     {
         $event->delete();
-        return redirect()->route('events.index')->with('success','Event has been deleted successfully');
+        return redirect()->route('events.index_backend')->with('success','Event has been deleted successfully');
     }
 }

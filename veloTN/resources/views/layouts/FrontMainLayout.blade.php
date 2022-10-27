@@ -199,7 +199,7 @@ Author: Kamleshyadav
                                     <li><a href="/lesassociations">Associations</a></li>
 
 
-                            <li><a href="">balades</a></li>
+                            <li><a href="{{ route('events.index') }}">Balades</a></li>
 
                             <li class="dropdown"><a href="javascript:;">pages</a>
                                 <ul class="sub-menu">

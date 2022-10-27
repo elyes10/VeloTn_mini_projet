@@ -48,7 +48,7 @@
                             </a>
                         </li>
                         <li >
-                            <a href="">
+                            <a href="{{ route('events.index_backend') }}">
                                 <i class="tim-icons icon-bullet-list-67"></i>
                                 <p style="font-size: 11px">{{ __('Balades Management') }}</p>
                             </a>

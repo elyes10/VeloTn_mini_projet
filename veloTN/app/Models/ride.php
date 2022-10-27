@@ -23,5 +23,6 @@ class ride extends Model
         'description',
         'destination',
         'startedAt',
+        'event_id',
     ];
 }
