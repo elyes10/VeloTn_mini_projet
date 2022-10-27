@@ -39,10 +39,9 @@
 
                                     <div class="col-lg-6 col-md-6">
                                         <div class="summary entry-summary">
-                                            <h1 class="product_title">{{$event->name}}</h1>
-                                            <h4 class="product-price-amount">${{$event->date}}</h4>
-                                            <h4 class="product-price-amount">${{$event->location}}</h4>
-                                            <p class="woocommerce-product-detail">{{$event->description}}</p>
+                                            <h1 class="product_title">Event's Name: <strong>{{$event->name}}</strong></h1>
+                                            <h4 class="product-price-amount">Date: {{$event->date}}</h4>
+                                            <h4 class="product-price-amount">Location: {{$event->location}}</h4>
 
                                         </div>
                                     </div>
@@ -53,13 +52,13 @@
                                     <div class="woocommerce-tabs">
                                         <ul class="tabs">
                                             <li class="nav-item">
-                                                <a class="nav-link " href="#discription" data-toggle="tab">Discription</a>
+                                                <a class="nav-link " href="#discription" data-toggle="tab">Description</a>
                                             </li>
 
                                         </ul>
                                         <div class="tab-content">
                                             <div role="tabpanel" class="tab-pane " id="discription">
-                                                <h3>Discription</h3>
+                                                <h3>Description</h3>
                                                 <p class="woocommerce-product-detail">{{$event->description}}</p>
                                             </div>
                                         </div>

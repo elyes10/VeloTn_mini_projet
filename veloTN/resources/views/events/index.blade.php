@@ -40,20 +40,19 @@
                                         <div class="col-lg-6 col-md-6 list-group-item">
                                             <div class="cy_store_box">
                                                 <div class="cy_store_img">
-
+                                                    <a href="#"> <img src="{{ asset('public/front/images/imgbalade1.jpg') }}" alt="imgBalade"  width="367px" height="345px"/></a>
                                                 </div>
+
                                                 <div class="cy_store_data" style="min-width: 320px;min-height: 345px;max-height: 345px" >
                                                     <div class="cy_store_text">
                                                         <h3>{{ $event->name }}</h3>
                                                         <ul>
 
-
                                                         </ul>
                                                     </div>
                                                     <p>{{ $event->description }}</p>
                                                     <p> <strong style="color: darkorange;font-size: 20px">date : </strong>{{ $event->date }} </p>
-                                                    <a href="{{ route('events.show',$event) }}" class="cy_button" data-hover="Book it now"><span>{{ $event->location }} $ / day</span></a>
-
+                                                    <a href="{{ route('events.show',$event) }}" class="cy_button" data-hover="Show Details"><span>{{ $event->location }}</span></a>
                                                 </div>
                                             </div>
                                         </div>

@@ -30,7 +30,7 @@
                                     <td>{{ $event->name }}</td>
                                     <td>{{ $event->description }}</td>
                                     <td>{{ $event->location }}</td>
-                                    <td>${{ $event->date }}</td>
+                                    <td>{{ $event->date }}</td>
                                     <td>
                                         <form action="{{ route('events.destroy',$event->id) }}" method="Post">
                                             <a class="btn btn-primary" href="{{ route('events.edit',$event->id) }}">Edit</a>
