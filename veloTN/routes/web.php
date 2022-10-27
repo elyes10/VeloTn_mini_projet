@@ -22,6 +22,9 @@ Route::get('/', function () {
     return view('FrontVues.Home_Front');
 });
 
+Route::get('/velotn', function () {
+    return view('FrontVues.Home_Front');
+});
 
 Route::get('/lesassociations', [AssociationController::class, 'indexfront']);
 

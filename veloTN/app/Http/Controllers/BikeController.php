@@ -119,7 +119,7 @@ class BikeController extends Controller
      * @return Response
      */
     public function destroy(bike $bike)
-    {
+    { $bike->reservations()->delete();
         $bike->delete();
         return redirect()->route('bikes.index_backend')->with('success','bike has been deleted successfully');
     }

@@ -116,8 +116,8 @@ Author: Kamleshyadav
 </div>
 <!-- sign icons -->
 <div class="cy_sign_wrapper">
-    <h2 class="signin"><i class="fa fa-sign-in" aria-hidden="true"></i><a href="#signin" data-toggle="modal">Sign In</a></h2>
-    <h2 class="signup"><i class="fa fa-user-plus" aria-hidden="true"></i><a href="#signup" data-toggle="modal">Sign Up</a></h2>
+    <h2 class="signin"><i class="fa fa-sign-in" aria-hidden="true"></i><a href="{{ route('home') }}" >Sign In Admin</a></h2>
+
 </div>
 <!-- sign in modal -->
 <div class="modal" id="signin">
@@ -181,7 +181,7 @@ Author: Kamleshyadav
 <!--Menus Start-->
 <div class="cy_menu_wrapper">
     <div class="cy_logo_box">
-        <a href="index.html"><img src="{{ asset('front') }}/images/logo.png" alt="logo" class="img-fluid"/></a>
+        <a href=""><img src="{{ asset('front') }}/images/logo.png" alt="logo" class="img-fluid"/></a>
     </div>
     <div class="container">
         <div class="row">
@@ -192,20 +192,15 @@ Author: Kamleshyadav
                 <div class="cy_menu">
                     <nav>
                         <ul>
-                            <li><a href="index.html" class="active">home</a></li>
-                            <li><a href="about.html">about</a></li>
-                            <li class="dropdown"><a href="javascript:;">event</a>
-                                <ul class="sub-menu">
-                                    <li><a href="event.html">event</a></li>
-                                    <li><a href="event_single.html">event single</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown"><a href="javascript:;">blog</a>
-                                <ul class="sub-menu">
-                                    <li><a href="blog.html">blog</a></li>
-                                    <li><a href="blog_single.html">blog single</a></li>
-                                </ul>
-                            </li>
+                            <li><a href="/velotn" >home</a></li>
+                            <li><a href="{{ route('bikes.index') }}">Shop</a></li>
+
+
+                                    <li><a href="/lesassociations">Associations</a></li>
+
+
+                            <li><a href="">balades</a></li>
+
                             <li class="dropdown"><a href="javascript:;">pages</a>
                                 <ul class="sub-menu">
                                     <li><a href="shop.html">shop</a></li>
