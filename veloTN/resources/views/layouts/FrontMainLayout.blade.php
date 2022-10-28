@@ -200,6 +200,7 @@ Author: Kamleshyadav
 
 
                             <li><a href="{{ route('events.index') }}">Events</a></li>
+                            <li><a href="{{ route('rides.index') }}">Balades</a></li>
 
                             <li class="dropdown"><a href="javascript:;">pages</a>
                                 <ul class="sub-menu">
